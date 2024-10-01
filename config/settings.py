@@ -17,7 +17,7 @@ from .config import SECRET_KEY
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # False if not in os.environ because of casting above
-DEBUG = True
+DEBUG = False
 
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
