@@ -23,7 +23,7 @@ DEBUG = True
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = SECRET_KEY
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', '43.201.19.133']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost' '43.201.69.39']
 
 
 # Application definition
