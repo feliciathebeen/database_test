@@ -82,12 +82,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "dev": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    },
-    'production': {
-        'ENGINE': 'django.db.backends.postgresql',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3' if DEBUG == 'True' else 'django.db.backends.postgresql',
+        # postgres
         'NAME': env('POSTGRES_DB'),
         'USER': env('POSTGRES_USER'),
         'PASSWORD': env('POSTGRES_PASSWORD'),
@@ -95,9 +92,24 @@ DATABASES = {
         'PORT': env('POSTGRES_PORT'),
     }
 }
-DATABASES['default'] = DATABASES['dev' if DEBUG else 'production']
 
-DATABASE_ROUTERS = ['config.database_routers.MultiDBRouter']
+# DATABASES = {
+#     "dev": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#     },
+#     'production': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('POSTGRES_DB'),
+#         'USER': env('POSTGRES_USER'),
+#         'PASSWORD': env('POSTGRES_PASSWORD'),
+#         'HOST': env('POSTGRES_HOST'),
+#         'PORT': env('POSTGRES_PORT'),
+#     }
+# }
+# DATABASES['default'] = DATABASES['dev' if DEBUG else 'production']
+#
+# DATABASE_ROUTERS = ['config.database_routers.MultiDBRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
