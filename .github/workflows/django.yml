@@ -24,11 +24,11 @@ jobs:
     - name: Run Tests
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        POSTGRES_DB: "postgres"
-        POSTGRES_USER: "postgres"
-        POSTGRES_PASSWORD: "postgres"
-        POSTGRES_HOST: "43.203.226.5"
-        POSTGRES_PORT: 5432
-        DJANGO_DEBUG: "True"
+        POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+        POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+        DJANGO_DEBUG: ${{ secrets.DJANGO_DEBUG }}
       run: |
         python manage.py test
